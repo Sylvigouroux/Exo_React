@@ -9,8 +9,7 @@ import '../../assets/skin.css'
 
 const App = ({store, state}) => {
   return (
-    // (store['characters'].length)
-    (false)
+    (store['characters'].length)
     ? h('div', { className: css(Styles['App']) },
         (state['card'].length === 0)
         ? h(MarvelList, {store, state})
