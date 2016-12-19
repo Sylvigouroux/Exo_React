@@ -28,6 +28,7 @@ export default StyleSheet.create({
   },
 
   'caption': {
+     'font-size': '22px',
      'line-height': '25px',
      'font-weight': '400'
   }

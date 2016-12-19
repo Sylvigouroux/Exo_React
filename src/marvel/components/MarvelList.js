@@ -16,7 +16,7 @@ const MarvelList = ({store}) => {
             h('div', { 
                 className: 'thumbnail',               
                 style: { 
-                  padding: '0',
+                  padding: '0', 
                   boxShadow: '0 0 3px #ccc'
                 }                
               },
@@ -56,12 +56,12 @@ const MarvelList = ({store}) => {
                         },
                         h('span', { 
                             className: 'glyphicon glyphicon-link',
-                            style: { color: '#999', fontSize: '12px' } 
+                            style: { color: '#777' } 
                           }
                         ),                      
                         h('a', { 
                             href: curr1['url'], 
-                            style: { color: '#999', fontSize: '12px' } 
+                            style: { color: '#777' } 
                           }, curr1['type']) 
                       )
                     )
