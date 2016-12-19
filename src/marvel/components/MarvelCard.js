@@ -89,7 +89,7 @@ const MarvelCard = ({state}) => {
 }
 
 MarvelCard.propTypes = {
-  store: PropTypes.object,
+  state: PropTypes.object,
 }
 
 export default observer(MarvelCard)
