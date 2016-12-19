@@ -28,8 +28,14 @@ export default StyleSheet.create({
   },
 
   'caption': {
-     'font-size': '22px',
-     'line-height': '25px',
-     'font-weight': '400'
-  }
+    'font-size': '22px',
+    'line-height': '25px',
+    'font-weight': '400'
+  },
+
+  'cards': {
+    'font-size': '18px',
+    'line-height': '25px',
+    'font-weight': '400'
+  },
 })

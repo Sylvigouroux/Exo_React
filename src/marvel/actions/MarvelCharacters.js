@@ -1,6 +1,6 @@
 import MarvelFetch from './MarvelFetch'
 
-const MarvelCharacters = ({store, type, characterId}) => {   
+const MarvelCharacters = ({store, type}) => {   
   async function Characters () {
     try {
       const total = (await MarvelFetch({type: 'characters'}))['data']['total']
@@ -13,19 +13,8 @@ const MarvelCharacters = ({store, type, characterId}) => {
     }
   }
 
-  async function CharactersInfo () {
-    try {
-      const response = await MarvelFetch({type: 'charactersInfo', characterId})
-
-      console.log('CharactersInfo', response)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
   return {
     'characters': Characters,
-    'charactersInfo': CharactersInfo
   }[type]()
 }
 

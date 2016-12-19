@@ -1,9 +1,10 @@
 import { createElement as h, PropTypes } from 'react'
+import MarvelCharacters from '../actions/MarvelCharacters'
 import { observer } from 'mobx-react'
 import { css } from 'aphrodite'
 import Styles from '../styles/Styles'
 
-const MarvelList = ({store}) => {
+const MarvelList = ({store, state}) => {
   return (
     h('div', { className: 'col-md-12' }, 
       h('h2', { className: css(Styles['heroes']) }, 'Liste des super héros :'),   
@@ -27,7 +28,7 @@ const MarvelList = ({store}) => {
                     backgroundColor: '#ececec',
                     cursor: 'pointer'
                   },
-                  onClick: () => console.log('thumbnail', currentIndex) 
+                  onClick: () => state.init('card', store['characters'][currentIndex])
                 },
                 h('img', { 
                     src: `${curr['thumbnail']['path']}/standard_xlarge.jpg`, 
@@ -39,14 +40,15 @@ const MarvelList = ({store}) => {
               h('div', { 
                   className: 'caption',
                   style: { 
-                    padding: '9px 0', 
+                    padding: '10px 0', 
                     boxShadow: '0 -1px 1px -1px #ccc'
                   }
                 },
                 h('p', { 
                     className: css(Styles['caption']), 
-                    style: { padding: '9px', boxShadow: '0 1px 1px -1px #ccc' } 
-                  }, curr['name']),
+                    style: { padding: '10px', boxShadow: '0 1px 1px -1px #ccc' } 
+                  }, curr['name']
+                ),
                 h('div', { style: { display: 'flex', padding: '0 9px' } },
                   curr['urls'].reduce((prev1, curr1) => {
                     prev1.push(
@@ -56,12 +58,12 @@ const MarvelList = ({store}) => {
                         },
                         h('span', { 
                             className: 'glyphicon glyphicon-link',
-                            style: { color: '#777' } 
+                            style: { color: '#999' } 
                           }
                         ),                      
                         h('a', { 
                             href: curr1['url'], 
-                            style: { color: '#777' } 
+                            style: { fontSize: '18px', color: '#999' } 
                           }, curr1['type']) 
                       )
                     )

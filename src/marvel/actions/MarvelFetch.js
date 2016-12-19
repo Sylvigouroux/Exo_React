@@ -27,11 +27,8 @@ const MarvelFetch = ({type, offset, characterId}) => {
 
   const Characters = () => api(`${baseUrl}/v1/public/characters?${queryParams()}`)
 
-  const CharactersInfo = () => api(`${baseUrl}/v1/public/characters/${characterId}?${queryParams()}`)
-
   return {
     'characters': Characters,
-    'charactersInfo': CharactersInfo
   }[type]()
 }
 
