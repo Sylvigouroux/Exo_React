@@ -8,7 +8,7 @@ export default {
       'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/only-dev-server',
       'whatwg-fetch',
-      './src/marvel/index'
+      './client/marvel/index'
     ],
     vendor: [
       'react',
@@ -20,22 +20,10 @@ export default {
     filename: '[name].bundle.js',
     publicPath: '/static/'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.SourceMapDevToolPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-      PROJECT_NAME: JSON.stringify('Exo React'),
-      API_PUBLIC: JSON.stringify('298bab46381a6daaaee19aa5c8cafea5'),
-      API_PRIVATE: JSON.stringify('b0223681fced28de0fe97e6b9cd091dd36a5b71d')           
-    })    
-  ],
   resolve: {
     extensions: ['.js']
   },
+
   module: {
     rules: [
       {
@@ -54,7 +42,7 @@ export default {
       {
         test: /\.js?$/,
         loader: 'babel-loader',
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'client')
       },
       {
         test: /\.css$/,
@@ -68,5 +56,18 @@ export default {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.SourceMapDevToolPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      PROJECT_NAME: JSON.stringify('Exo React'),
+      API_PUBLIC: JSON.stringify('298bab46381a6daaaee19aa5c8cafea5'),
+      API_PRIVATE: JSON.stringify('b0223681fced28de0fe97e6b9cd091dd36a5b71d')           
+    })    
+  ]
 }
