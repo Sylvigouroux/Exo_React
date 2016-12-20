@@ -5,7 +5,7 @@ export default {
   entry: {
     marvel: [
       'whatwg-fetch',
-      './src/marvel/index'
+      './client/marvel/index'
     ],
     vendor: [
       'react',
@@ -52,7 +52,7 @@ export default {
       {
         test: /\.js?$/,
         loader: 'babel-loader',
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'client')
       },
       {
         test: /\.css$/,

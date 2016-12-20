@@ -8,7 +8,7 @@ export default {
       'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/only-dev-server',
       'whatwg-fetch',
-      './src/marvel/index'
+      './client/marvel/index'
     ],
     vendor: [
       'react',
@@ -54,7 +54,7 @@ export default {
       {
         test: /\.js?$/,
         loader: 'babel-loader',
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'client')
       },
       {
         test: /\.css$/,
