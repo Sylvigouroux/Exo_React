@@ -32,56 +32,33 @@ const MarvelCard = ({state}) => {
             h('h2', { style: { padding: '0 10px' } }, state['card']['name']),
             h('p', { style: { padding: '0 10px' } }, state['card']['description'])
           ),
-          h('div', { 
-              className: 'comics',
-              style: { marginTop: '10px' }
-            },
-            h('p', { className: css(Styles['cards']) }, 'Comics'),
-            h('ul', { className: 'list-unstyled' },
-              [{ name: null, resourceURI: null }].concat(toJS(state['card']['comics']['items'])).reduce((prev, curr) => {
-                prev.push(
-                  h('li', { 
-                      key: window.crypto.getRandomValues(new Uint32Array(1))[0],
-                      style: { 
-                        borderBottom: '1px solid #ddd', 
-                        padding: '0 0 5px 10px', 
-                        marginBottom: '5px' 
-                      }
-                    },
-                    h('a', { 
-                        href: curr['resourceURI']
-                      }, curr['name']
+          ['comics', 'series'].reduce((prev, curr) => {
+            prev.push(
+              h('div', { 
+                  className: curr,
+                  key: window.crypto.getRandomValues(new Uint32Array(1))[0],
+                  style: { marginTop: '10px' }
+                },
+                h('p', { className: css(Styles['cards']) }, `${curr.slice(0, 1).toUpperCase()}${curr.slice(1)}`),
+                h('ul', { className: 'list-unstyled' },
+                  [{ name: null, resourceURI: null }].concat(toJS(state['card'][curr]['items'])).reduce((prev1, curr1) => {
+                    prev1.push(
+                      h('li', { 
+                          key: window.crypto.getRandomValues(new Uint32Array(1))[0],
+                          style: { 
+                            borderBottom: '1px solid #ddd', 
+                            padding: '0 0 5px 10px', 
+                            marginBottom: '5px' 
+                          }
+                        },
+                        h('span', null, curr1['name'])
+                      )
                     )
-                  )
+                    return prev1 }, [])
                 )
-                return prev }, [])
+              )
             )
-          ),
-          h('div', { 
-              className: 'series',
-              style: { marginTop: '10px' }
-            },
-            h('p', { className: css(Styles['cards']) }, 'Series'),
-            h('ul', { className: 'list-unstyled' },
-              [{ name: null, resourceURI: null }].concat(toJS(state['card']['series']['items'])).reduce((prev, curr) => {
-                prev.push(
-                  h('li', { 
-                      key: window.crypto.getRandomValues(new Uint32Array(1))[0],
-                      style: { 
-                        borderBottom: '1px solid #ddd', 
-                        padding: '0 0 5px 10px', 
-                        marginBottom: '5px' 
-                      }
-                    },
-                    h('a', { 
-                        href: curr['resourceURI']
-                      }, curr['name']
-                    )
-                  )
-                )
-                return prev }, [])
-            )
-          )
+            return prev }, [])
         )
       )
     )
