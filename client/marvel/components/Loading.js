@@ -5,7 +5,7 @@ import loader from '../../assets/images/assets/loader.gif'
 import logoReact from '../../assets/images/logos/react_logo.svg'
 import logoVentePrivee from '../../assets/images/logos/logo_vp.png'
 
-const Loading = () => {
+export const Loading = () => {
   return (
     h('div', { className: 'col-md-12', style: { textAlign: 'center', marginTop: '20px' } },
       h('img', { className: css(Styles['App-logo']), src: logoReact, alt: 'logo' }),       
@@ -17,5 +17,3 @@ const Loading = () => {
     )
   )        
 }
-
-export default Loading

@@ -1,6 +1,6 @@
-import MarvelFetch from './MarvelFetch'
+import { MarvelFetch } from './MarvelFetch'
 
-const MarvelCharacters = ({store, type}) => {   
+export const MarvelCharacters = ({store, type}) => {   
   async function Characters () {
     try {
       const total = (await MarvelFetch({type: 'characters'}))['data']['total']
@@ -17,5 +17,3 @@ const MarvelCharacters = ({store, type}) => {
     'characters': Characters,
   }[type]()
 }
-
-export default MarvelCharacters

@@ -1,7 +1,7 @@
 import { createElement as h, PropTypes } from 'react'
 import MarvelList from '../components/MarvelList'
 import MarvelCard from '../components/MarvelCard'
-import Loading from '../components/Loading'
+import { Loading } from '../components/Loading'
 import { observer } from 'mobx-react'
 import { css } from 'aphrodite'
 import Styles from '../styles/Styles'

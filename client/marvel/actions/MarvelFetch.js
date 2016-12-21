@@ -1,6 +1,6 @@
 import md5 from 'blueimp-md5'
 
-const MarvelFetch = ({type, offset, characterId}) => {   
+export const MarvelFetch = ({type, offset, characterId}) => {   
   const baseUrl = 'http://gateway.marvel.com:80'  
   async function api (url) {
     const response = await fetch(url, {
@@ -31,5 +31,3 @@ const MarvelFetch = ({type, offset, characterId}) => {
     'characters': Characters,
   }[type]()
 }
-
-export default MarvelFetch

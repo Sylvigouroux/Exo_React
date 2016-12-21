@@ -1,6 +1,5 @@
 import { createElement as h, PropTypes } from 'react'
 import MarvelSearch from './MarvelSearch'
-import MarvelCharacters from '../actions/MarvelCharacters'
 import { observer } from 'mobx-react'
 import { css } from 'aphrodite'
 import Styles from '../styles/Styles'
