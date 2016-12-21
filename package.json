@@ -4,8 +4,8 @@
   "description": "React-mobX-Aphrodite-Jest BoilerPlate",
   "main": "index.js",
   "scripts": {
-    "start-dev": "babel-node --presets es2015 server.dev.js",
-    "start": "babel-node --presets es2015 server.prod.js"
+    "start-dev": "babel-node --presets es2015 ./webpack/server.dev.js",
+    "start": "babel-node --presets es2015 ./webpack/server.prod.js"
   },
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
     "extract-text-webpack-plugin": "^2.0.0-",
     "fast-async": "^6.1.2",
     "file-loader": "0.9.0",
-    "flow-bin": "^0.37.1",
+    "flow-bin": "^0.37.3",
     "html-webpack-plugin": "^2.24.1",
     "react-hot-loader": "^3.0.0-",
     "style-loader": "^0.13.1",

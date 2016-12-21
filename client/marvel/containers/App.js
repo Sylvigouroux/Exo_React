@@ -5,7 +5,6 @@ import Loading from '../components/Loading'
 import { observer } from 'mobx-react'
 import { css } from 'aphrodite'
 import Styles from '../styles/Styles'
-import '../../assets/skin.css'
 
 const App = ({store, state}) => {
   return (
