@@ -58,12 +58,20 @@ export default {
     ]
   },
   plugins: [    
+    // new webpack.optimize.AggressiveSplittingPlugin({
+    //   minSize: 5000,
+    //   maxSize: 10000
+    // }),
     new HtmlWebpackPlugin({ 
       inject: true,
       template: path.join(__dirname, '../index.html') 
     }),
     new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
+    new webpack.optimize.CommonsChunkPlugin({ 
+      name: 'vendor', 
+      filename: 'vendor.bundle.js',
+      minChunks: Infinity
+    }),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
