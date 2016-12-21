@@ -2,6 +2,7 @@ import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin'
 
 export default {
   entry: {
@@ -62,9 +63,12 @@ export default {
     //   minSize: 5000,
     //   maxSize: 10000
     // }),
+    new InterpolateHtmlPlugin({
+      PUBLIC_URL: 'public'
+    }),
     new HtmlWebpackPlugin({ 
       inject: true,
-      template: path.join(__dirname, '../index.html') 
+      template: path.join(__dirname, '../public/index.html') 
     }),
     new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
     new webpack.optimize.CommonsChunkPlugin({ 

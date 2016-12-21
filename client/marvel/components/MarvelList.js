@@ -7,8 +7,8 @@ import Styles from '../styles/Styles'
 const MarvelList = ({store, state}) => {
   return (
     h('div', { className: 'col-md-12' }, 
-      h('div', { style: { display: 'flex', alignItems: 'center', marginBottom: '30px' } },
-        h('h2', { className: css(Styles['heroes']) }, 'Liste des super héros :'),   
+      h('div', { style: { display: 'flex', alignItems: 'center', marginBottom: '30px' } }, 
+        h('h2', { className: css(Styles['heroes']) }, 'Liste des super héros :'),           
         h(MarvelSearch, {store, state})
       ),
       store['characters'].reduce((prev, curr, currentIndex) => {
@@ -16,7 +16,8 @@ const MarvelList = ({store, state}) => {
         ? prev.push(
             h('div', { 
                 className: 'col-md-3', 
-                key: window.crypto.getRandomValues(new Uint32Array(1))[0]
+                key: window.crypto.getRandomValues(new Uint32Array(1))[0],
+                style: { marginBottom: '30px' }
               },
               h('div', { 
                   className: 'thumbnail',               
@@ -60,11 +61,12 @@ const MarvelList = ({store, state}) => {
                             key: window.crypto.getRandomValues(new Uint32Array(1))[0],
                             style: { marginRight: '10px' }
                           },
-                          h('span', { 
-                              className: 'glyphicon glyphicon-link',
-                              style: { color: '#999' } 
+                          h('i', {
+                              className: 'fa fa-book fa-1',
+                              'aria-hidden': 'true',
+                              style: { marginRight: '5px', color: '#999' }
                             }
-                          ),                      
+                          ),                   
                           h('a', { 
                               href: curr1['url'], 
                               style: { fontSize: '18px', color: '#999' } 

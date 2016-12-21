@@ -1,6 +1,7 @@
 import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin'
 
 export default {
   entry: {
@@ -60,9 +61,12 @@ export default {
     ]
   },
   plugins: [
+    new InterpolateHtmlPlugin({
+      PUBLIC_URL: 'public'
+    }),
     new HtmlWebpackPlugin({ 
       inject: true,
-      template: path.join(__dirname, '../index.html') 
+      template: path.join(__dirname, '../public/index.html') 
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.SourceMapDevToolPlugin(),

@@ -6,9 +6,9 @@ import Styles from '../styles/Styles'
 
 const MarvelCard = ({state}) => {
   return (
-    h('div', { className: 'col-md-12 col-md-offset-2', style: { display: 'flex', flexDirection: 'column' } }, 
+    h('div', { className: 'col-md-12 col-md-offset-2' }, 
       h('h2', { className: css(Styles['heroes']) }, 'Fiche identité :'),  
-      h('div', { display: 'flex' },
+      h('div', null,
         h('div', { className: 'col-md-3', style: { display: 'flex', flexDirection: 'column' } },
           h('img', { 
               src: `${state['card']['thumbnail']['path']}/standard_xlarge.jpg`, 
@@ -16,15 +16,16 @@ const MarvelCard = ({state}) => {
               height: '400px'
             } 
           ),
-          h('div', { className: 'cta-wrapper',  style: { display: 'flex', justifyContent: 'center' } },
+          h('div', { className: 'cta-wrapper', style: { display: 'flex', justifyContent: 'center' } },
             h('a', { 
                 className: 'cta-wrapper',
-                onClick: () => state.init('card', [])
+                onClick: () => state.init('card', []),
+                style: { color: 'white' }
               }, 'Retour'
             )
           )
         ),
-        h('div', { className: 'col-md-4', style: { display: 'flex', flexDirection: 'column' } },
+        h('div', { className: 'col-md-4' },
           h('div', { 
               className: 'thumbnail',
               style: { boxShadow: '0 5px 5px -5px #ccc' }

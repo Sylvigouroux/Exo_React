@@ -11,7 +11,7 @@ export const Loading = () => {
       h('img', { className: css(Styles['App-logo']), src: logoReact, alt: 'logo' }),       
       h('div', { style: { display: 'flex', justifyContent: 'center' } },
         h('h2', { className: css(Styles['welcome']) }, `Welcome to ${PROJECT_NAME} for`),
-        h('img', { style: { margin: '27px 0 0 7px' }, height: '46px', src: logoVentePrivee, alt: 'Vente Privée' })
+        h('img', { style: { margin: '8px 0 0 6px' }, height: '45px', src: logoVentePrivee, alt: 'Vente Privée' })
       ),
       h('img', { src: loader, alt: 'loader' })   
     )
