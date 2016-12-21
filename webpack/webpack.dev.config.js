@@ -68,7 +68,10 @@ export default {
     new webpack.SourceMapDevToolPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
+    new webpack.optimize.CommonsChunkPlugin({ 
+      name: 'vendor', 
+      filename: 'vendor.bundle.js' 
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
       PROJECT_NAME: JSON.stringify('Exo React'),
