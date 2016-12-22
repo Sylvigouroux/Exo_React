@@ -7,7 +7,7 @@ import Styles from '../styles/Styles'
 const MarvelCard = ({state}) => {
   return (
     h('div', { className: 'col-lg-12' }, 
-      h('h2', { className: css(Styles['heroes']) }, 'Fiche identité :'),  
+      h('h1', { className: css(Styles['heroes']) }, 'Fiche identité :'),  
       h('div', null,
         h('div', { className: 'col-lg-2', style: { display: 'flex', flexDirection: 'column' } },
           h('div', { className: 'card' }, 
