@@ -93,6 +93,7 @@ const MarvelList = ({store, state}) => {
 
 MarvelList.propTypes = {
   store: PropTypes.object,
+  state: PropTypes.object
 }
 
 export default observer(MarvelList)
