@@ -17,10 +17,10 @@ const MarvelList = ({store, state}) => {
             h('div', { 
                 className: 'col-md-3', 
                 key: window.crypto.getRandomValues(new Uint32Array(1))[0],
-                style: { marginBottom: '30px' }
+                style: { marginBottom: '15px' }
               },
               h('div', { 
-                  className: 'thumbnail',               
+                  className: 'card',               
                   style: { 
                     padding: '0', 
                     boxShadow: '0 0 3px #ccc'
@@ -36,6 +36,7 @@ const MarvelList = ({store, state}) => {
                     onClick: () => state.init('card', store['characters'][currentIndex])
                   },
                   h('img', { 
+                      className: 'card-img-top',
                       src: `${curr['thumbnail']['path']}/standard_xlarge.jpg`, 
                       alt: curr['name'],
                       style: { padding: '0 0 5px 0' }
@@ -43,7 +44,7 @@ const MarvelList = ({store, state}) => {
                   )
                 ),
                 h('div', { 
-                    className: 'caption',
+                    className: 'card-block',
                     style: { 
                       padding: '10px 0', 
                       boxShadow: '0 -1px 1px -1px #ccc'
@@ -54,7 +55,10 @@ const MarvelList = ({store, state}) => {
                       style: { padding: '10px', boxShadow: '0 1px 1px -1px #ccc' } 
                     }, curr['name']
                   ),
-                  h('div', { style: { display: 'flex', padding: '0 9px' } },
+                  h('div', { 
+                      className: 'card-block',
+                      style: { display: 'flex', padding: '0 9px' } 
+                    },
                     curr['urls'].reduce((prev1, curr1) => {
                       prev1.push(
                         h('div', { 
