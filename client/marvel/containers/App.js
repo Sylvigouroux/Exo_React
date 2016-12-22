@@ -9,10 +9,12 @@ import Styles from '../styles/Styles'
 const App = ({store, state}) => {
   return (
     (store['characters'].length)
-    ? h('div', { className: css(Styles['App']) },
-        (state['card'].length === 0)
-        ? h(MarvelList, {store, state})
-        : h(MarvelCard, {state})
+    ? h('div', { className: 'container-fluid', style: { fontFamily: 'vp_sans, sans-serif' } },
+        h('div', { className: 'row' },
+          (state['card'].length === 0)
+          ? h(MarvelList, {store, state})
+          : h(MarvelCard, {state})
+        )
       ) 
     : h(Loading, null)     
   )

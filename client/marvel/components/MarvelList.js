@@ -6,7 +6,7 @@ import Styles from '../styles/Styles'
 
 const MarvelList = ({store, state}) => {
   return (
-    h('div', { className: 'col-md-12' }, 
+    h('div', { className: 'col-lg-12' }, 
       h('div', { style: { display: 'flex', alignItems: 'center', marginBottom: '30px' } }, 
         h('h2', { className: css(Styles['heroes']) }, 'Liste des super héros :'),           
         h(MarvelSearch, {store, state})
@@ -15,7 +15,7 @@ const MarvelList = ({store, state}) => {
         curr['name'].toLowerCase().includes(state['filter'].toLowerCase())
         ? prev.push(
             h('div', { 
-                className: 'col-md-3', 
+                className: 'col-lg-3', 
                 key: window.crypto.getRandomValues(new Uint32Array(1))[0],
                 style: { marginBottom: '15px' }
               },
