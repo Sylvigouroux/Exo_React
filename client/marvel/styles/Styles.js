@@ -6,10 +6,6 @@ const appLogoSpin = {
 }
 
 export default StyleSheet.create({
-  'App': {
-    'font-family': 'vp_sans, sans-serif'
-  },
-
   'App-logo': {
     animation: 'infinite 20s linear',
     animationName: appLogoSpin,

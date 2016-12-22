@@ -6,28 +6,38 @@ import Styles from '../styles/Styles'
 
 const MarvelCard = ({state}) => {
   return (
-    h('div', { className: 'col-md-12 col-md-offset-2', style: { display: 'flex', flexDirection: 'column' } }, 
-      h('h2', { className: css(Styles['heroes']) }, 'Fiche identité :'),  
-      h('div', { display: 'flex' },
-        h('div', { className: 'col-md-3', style: { display: 'flex', flexDirection: 'column' } },
-          h('img', { 
-              src: `${state['card']['thumbnail']['path']}/standard_xlarge.jpg`, 
-              alt: state['card']['name'],
-              height: '400px'
-            } 
+    h('div', { className: 'col-lg-12' }, 
+      h('h1', { className: css(Styles['heroes']) }, 'Fiche identité :'),  
+      h('div', null,
+        h('div', { className: 'col-lg-2', style: { display: 'flex', flexDirection: 'column' } },
+          h('div', { className: 'card' }, 
+            h('div', { style: { display: 'flex' } },
+              h('img', { 
+                  className: 'card-img-top',
+                  src: `${state['card']['thumbnail']['path']}/standard_xlarge.jpg`, 
+                  alt: state['card']['name'],
+                  height: '400px'
+                } 
+              )
+            )
           ),
-          h('div', { className: 'cta-wrapper',  style: { display: 'flex', justifyContent: 'center' } },
+          h('div', { className: 'cta-wrapper', style: { display: 'flex', justifyContent: 'center' } },
             h('a', { 
                 className: 'cta-wrapper',
-                onClick: () => state.init('card', [])
+                onClick: () => state.init('card', []),
+                style: { color: 'white' }
               }, 'Retour'
             )
           )
         ),
-        h('div', { className: 'col-md-4', style: { display: 'flex', flexDirection: 'column' } },
+        h('div', { className: 'col-md-4' },
           h('div', { 
-              className: 'thumbnail',
-              style: { boxShadow: '0 5px 5px -5px #ccc' }
+              className: 'card',
+              style: { 
+                padding: '10px 0 0 10px',
+                marginBottom: '30px', 
+                boxShadow: '0 5px 5px -5px #ccc' 
+              }
             },
             h('h2', { style: { padding: '0 10px' } }, state['card']['name']),
             h('p', { style: { padding: '0 10px' } }, state['card']['description'])

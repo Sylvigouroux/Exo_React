@@ -1,5 +1,7 @@
 import path from 'path'
 import webpack from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin'
 
 export default {
   entry: {
@@ -7,6 +9,7 @@ export default {
       'react-hot-loader/patch',
       'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/only-dev-server',
+      './client/assets/skin.css',
       'whatwg-fetch',
       './client/marvel/index'
     ],
@@ -18,24 +21,12 @@ export default {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].bundle.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.SourceMapDevToolPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-      PROJECT_NAME: JSON.stringify('Exo React'),
-      API_PUBLIC: JSON.stringify('298bab46381a6daaaee19aa5c8cafea5'),
-      API_PRIVATE: JSON.stringify('b0223681fced28de0fe97e6b9cd091dd36a5b71d')           
-    })    
-  ],
   resolve: {
     extensions: ['.js']
   },
+
   module: {
     rules: [
       {
@@ -54,7 +45,7 @@ export default {
       {
         test: /\.js?$/,
         loader: 'babel-loader',
-        include: path.join(__dirname, 'client')
+        include: path.join(__dirname, '../client')
       },
       {
         test: /\.css$/,
@@ -68,5 +59,28 @@ export default {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new InterpolateHtmlPlugin({
+      PUBLIC_URL: 'public'
+    }),
+    new HtmlWebpackPlugin({ 
+      inject: true,
+      template: path.join(__dirname, '../public/index.html') 
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.SourceMapDevToolPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({ 
+      name: 'vendor', 
+      filename: 'vendor.bundle.js' 
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      PROJECT_NAME: JSON.stringify('Exo React'),
+      API_PUBLIC: JSON.stringify('298bab46381a6daaaee19aa5c8cafea5'),
+      API_PRIVATE: JSON.stringify('b0223681fced28de0fe97e6b9cd091dd36a5b71d')           
+    })    
+  ]
 }

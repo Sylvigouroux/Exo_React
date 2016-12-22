@@ -1,19 +1,20 @@
 import { createElement as h, PropTypes } from 'react'
 import MarvelList from '../components/MarvelList'
 import MarvelCard from '../components/MarvelCard'
-import Loading from '../components/Loading'
+import { Loading } from '../components/Loading'
 import { observer } from 'mobx-react'
 import { css } from 'aphrodite'
 import Styles from '../styles/Styles'
-import '../../assets/skin.css'
 
 const App = ({store, state}) => {
   return (
     (store['characters'].length)
-    ? h('div', { className: css(Styles['App']) },
-        (state['card'].length === 0)
-        ? h(MarvelList, {store, state})
-        : h(MarvelCard, {state})
+    ? h('div', { className: 'container-fluid', style: { fontFamily: 'vp_sans, sans-serif' } },
+        h('div', { className: 'row' },
+          (state['card'].length === 0)
+          ? h(MarvelList, {store, state})
+          : h(MarvelCard, {state})
+        )
       ) 
     : h(Loading, null)     
   )
@@ -21,6 +22,7 @@ const App = ({store, state}) => {
 
 App.propTypes = {
   store: PropTypes.object,
+  state: PropTypes.object
 }
 
 export default observer(App)
