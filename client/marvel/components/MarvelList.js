@@ -7,8 +7,10 @@ import Styles from '../styles/Styles'
 const MarvelList = ({store, state}) => {
   return (
     h('div', { className: 'col-lg-12' }, 
-      h('div', { style: { display: 'flex', alignItems: 'center', marginBottom: '30px' } }, 
-        h('h2', { className: css(Styles['heroes']) }, 'Liste des super héros :'),           
+      h('div', { className: 'row', style: { display: 'flex', alignItems: 'center', marginBottom: '30px' } },  
+        h('div', { className: 'col-lg-5' }, 
+          h('h2', { className: css(Styles['heroes']) }, 'Liste des super héros :'),
+        ),           
         h(MarvelSearch, {store, state})
       ),
       store['characters'].reduce((prev, curr, currentIndex) => {

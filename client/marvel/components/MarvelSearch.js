@@ -7,13 +7,14 @@ const MarvelSearch = ({state}) => {
   return (
     h('div', { className: 'col-lg-2' },
       h('input', {
-          className: 'form-control',          
+          className: 'form-control',   
           type: 'text',
           placeholder: 'Recherchez un super héros',
           value: state['filter'],
           onChange: (e) => state.init('filter', e.target.value),
           style: { height: '50px', fontSize: '20px' }
-      })
+        }
+      )
     )
   )
 }
