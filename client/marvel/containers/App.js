@@ -20,6 +20,7 @@ const App = ({store, state}) => {
 
 App.propTypes = {
   store: PropTypes.object,
+  state: PropTypes.object
 }
 
 export default observer(App)
