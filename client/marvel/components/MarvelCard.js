@@ -7,11 +7,21 @@ import Styles from '../styles/Styles'
 const MarvelCard = ({state}) => {
   return (
     h('div', { className: 'col-lg-12' }, 
-      h('h1', { className: css(Styles['heroes']) }, 'Fiche identité :'),  
-      h('div', null,
-        h('div', { className: 'col-lg-2', style: { display: 'flex', flexDirection: 'column' } },
-          h('div', { className: 'card' }, 
-            h('div', { style: { display: 'flex' } },
+      h('div', { className: 'col-lg-4' },
+        h('h1', { className: css(Styles['heroes']) }, 'Fiche identité :'),  
+      ),
+      h('div', { className: 'col-lg-12' },
+        h('div', { 
+            className: 'col-lg-3', 
+            style: { display: 'flex', flexDirection: 'column', marginBottom: '50px' } 
+          },
+          h('div', { 
+              className: 'card',
+              style: { border: '0' }
+            }, 
+            h('div', { 
+                style: { display: 'flex', justifyContent: 'center' } 
+              },
               h('img', { 
                   className: 'card-img-top',
                   src: `${state['card']['thumbnail']['path']}/standard_xlarge.jpg`, 
@@ -30,7 +40,7 @@ const MarvelCard = ({state}) => {
             )
           )
         ),
-        h('div', { className: 'col-md-4' },
+        h('div', { className: 'col-lg-4' },
           h('div', { 
               className: 'card',
               style: { 
