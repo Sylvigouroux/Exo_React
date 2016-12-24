@@ -8,7 +8,7 @@ import Styles from '../styles/Styles'
 
 const App = ({store, state}) => {
   return (
-    (store['characters'].length)
+    (store['characters'])
     ? h('div', { className: 'container-fluid', style: { fontFamily: 'vp_sans, sans-serif' } },
         h('div', { className: 'row' },
           (state['card'].length === 0)

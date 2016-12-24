@@ -1,15 +1,26 @@
 import md5 from 'blueimp-md5'
+import Future from 'fluture'
 
 export const MarvelFetch = ({type, offset}) => {   
-  const baseUrl = 'http://gateway.marvel.com:80'  
-  async function api (url) {
-    const response = await fetch(url, {
-      method: 'GET'
-    })   
+  const baseUrl = 'http://gateway.marvel.com:80'    
 
-    return (response.status >= 200 && response.status < 300)
-           ? response.json()
-           : (() => { throw new Error(response.statusText) })()
+  const api = (url) => {
+    // https://developers.google.com/web/fundamentals/getting-started/primers/promises#toc-promisifying-xmlhttprequest
+    
+    return new Promise((resolve, reject) => {
+      const req = new XMLHttpRequest()
+      req.open('GET', url)
+
+      req.onload = () => {
+        return (req.status >= 200 && req.status < 300) 
+               ? resolve(req.response)
+               : reject(Error(req.statusText))
+      }
+
+      req.onerror = () => reject(Error('Network Error'))
+
+      req.send()
+    })
   }
 
   const queryParams = () => {
@@ -25,7 +36,7 @@ export const MarvelFetch = ({type, offset}) => {
     return Object.keys(params).reduce((prev, curr) => `${prev}${curr}=${params[curr]}&`, '').slice(0, -1)
   }
 
-  const Characters = () => api(`${baseUrl}/v1/public/characters?${queryParams()}`)
+  const Characters = () => Future.fromPromise(api)(`${baseUrl}/v1/public/characters?${queryParams()}`)
 
   return {
     'characters': Characters,

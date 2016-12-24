@@ -8,7 +8,6 @@ export default {
   entry: {
     marvel: [
       './client/assets/skin.css',
-      'whatwg-fetch',
       './client/marvel/index'
     ],
     vendor: [
@@ -76,6 +75,7 @@ export default {
       filename: 'vendor.bundle.js',
       minChunks: Infinity
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,

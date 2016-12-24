@@ -1,4 +1,16 @@
 {
-  "presets": [["es2015", { "modules": false }], "react"],
-  "plugins": ["react-hot-loader/babel", "transform-decorators-legacy", "transform-class-properties", "fast-async"]
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": [">1%", "last 2 versions"]
+      },
+      "modules": false
+    }],
+    "react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel", 
+    "transform-decorators-legacy", 
+    "transform-class-properties"
+  ]
 }
