@@ -7,7 +7,7 @@ export const MarvelFetch = ({type, offset}) => {
   const api = (url) => {
     // https://developers.google.com/web/fundamentals/getting-started/primers/promises#toc-promisifying-xmlhttprequest
 
-    return new Promise((resolve, reject) => {
+    return Future((reject, resolve) => {
       const req = new XMLHttpRequest()
       req.open('GET', url)
 
@@ -36,7 +36,7 @@ export const MarvelFetch = ({type, offset}) => {
     return Object.keys(params).reduce((prev, curr) => `${prev}${curr}=${params[curr]}&`, '').slice(0, -1)
   }
 
-  const Characters = () => Future.fromPromise(api)(`${baseUrl}/v1/public/characters?${queryParams()}`)
+  const Characters = () => api(`${baseUrl}/v1/public/characters?${queryParams()}`)
 
   return {
     'characters': Characters,
