@@ -6,7 +6,7 @@ export const MarvelFetch = ({type, offset}) => {
 
   const api = (url) => {
     // https://developers.google.com/web/fundamentals/getting-started/primers/promises#toc-promisifying-xmlhttprequest
-    
+
     return new Promise((resolve, reject) => {
       const req = new XMLHttpRequest()
       req.open('GET', url)

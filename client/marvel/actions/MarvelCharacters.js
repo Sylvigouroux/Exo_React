@@ -4,6 +4,7 @@ import Future from 'fluture'
 export const MarvelCharacters = ({store, type}) => {   
   const Characters = () => {
     console.log('Future MarvelCharacters')
+    
     MarvelFetch({ type: 'characters' })
       .map(characters => JSON.parse(characters)['data']['total'])
       .fork(console.error, (total) => {

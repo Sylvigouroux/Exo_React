@@ -42,7 +42,11 @@ export default {
       {
         test: /\.js?$/,
         loader: 'babel-loader',
-        include: path.join(__dirname, '../client')
+        include: [
+          path.join(__dirname, '../client'),
+          path.join(__dirname, '../node_modules/fluture'),
+          path.join(__dirname, '../node_modules/inspect-f')
+        ]
       },
       {
         test: /\.css$/,
@@ -76,7 +80,19 @@ export default {
       minChunks: Infinity
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        screw_ie8: true, // React doesn't support IE8
+        warnings: false
+      },
+      mangle: {
+        screw_ie8: true
+      },
+      output: {
+        comments: false,
+        screw_ie8: true
+      }
+    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
