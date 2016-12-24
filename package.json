@@ -46,6 +46,7 @@
     "extract-text-webpack-plugin": "^2.0.0-",
     "file-loader": "0.9.0",
     "flow-bin": "^0.37.4",
+    "flow-static-land": "^0.2.4",
     "html-webpack-plugin": "^2.24.1",
     "react-dev-utils": "^0.4.2",
     "react-hot-loader": "^3.0.0-",
