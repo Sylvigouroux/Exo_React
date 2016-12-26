@@ -7,9 +7,7 @@ import Styles from '../styles/Styles'
 const MarvelCard = ({state}) => {
   return (
     h('div', { className: 'col-lg-12' }, 
-      h('div', { className: 'col-lg-4' },
-        h('h1', { className: css(Styles['heroes']) }, 'Fiche identité :'),  
-      ),
+      h('h1', { className: css(Styles['heroes']) }, 'Fiche identité :'),
       h('div', { className: 'col-lg-12' },
         h('div', { 
             className: 'col-lg-3', 

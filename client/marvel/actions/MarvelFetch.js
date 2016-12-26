@@ -4,12 +4,12 @@ import Future from 'fluture'
 export const MarvelFetch = ({type, offset}) => {   
   const baseUrl = 'http://gateway.marvel.com:80'    
 
-  const api = (url) => {
+  const api = ({url, method, headers, body}) => {
     // https://developers.google.com/web/fundamentals/getting-started/primers/promises#toc-promisifying-xmlhttprequest
 
     return Future((reject, resolve) => {
       const req = new XMLHttpRequest()
-      req.open('GET', url)
+      req.open(method, url)
 
       req.onload = () => {
         return (req.status >= 200 && req.status < 300) 
@@ -36,7 +36,10 @@ export const MarvelFetch = ({type, offset}) => {
     return Object.keys(params).reduce((prev, curr) => `${prev}${curr}=${params[curr]}&`, '').slice(0, -1)
   }
 
-  const Characters = () => api(`${baseUrl}/v1/public/characters?${queryParams()}`)
+  const Characters = () => api({
+    url: `${baseUrl}/v1/public/characters?${queryParams()}`,
+    method: 'GET'
+  })
 
   return {
     'characters': Characters,
