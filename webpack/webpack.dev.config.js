@@ -8,14 +8,9 @@ export default {
   entry: {
     marvel: [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
+      'react-dev-utils/webpackHotDevClient',
       './client/assets/skin.css',
       './client/marvel/index'
-    ],
-    vendor: [
-      'react',
-      'react-dom'
     ]
   },
   output: {
@@ -60,6 +55,10 @@ export default {
       }
     ]
   },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  },
   plugins: [
     new InterpolateHtmlPlugin({
       PUBLIC_URL: 'public'
@@ -72,10 +71,6 @@ export default {
     new webpack.SourceMapDevToolPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({ 
-      name: 'vendor', 
-      filename: 'vendor.bundle.js' 
-    }),
     new webpack.DefinePlugin(env)    
   ]
 }

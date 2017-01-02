@@ -10,10 +10,6 @@ export default {
     marvel: [
       './client/assets/skin.css',
       './client/marvel/index'
-    ],
-    vendor: [
-      'react',
-      'react-dom'
     ]
   },
   output: {
@@ -62,6 +58,10 @@ export default {
       }
     ]
   },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  },
   plugins: [    
     // new webpack.optimize.AggressiveSplittingPlugin({
     //   minSize: 5000,
@@ -75,25 +75,8 @@ export default {
       template: path.join(__dirname, '../public/index.html') 
     }),
     new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
-    new webpack.optimize.CommonsChunkPlugin({ 
-      name: 'vendor', 
-      filename: 'vendor.bundle.js',
-      minChunks: Infinity
-    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: true, // React doesn't support IE8
-        warnings: false
-      },
-      mangle: {
-        screw_ie8: true
-      },
-      output: {
-        comments: false,
-        screw_ie8: true
-      }
-    }),
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
