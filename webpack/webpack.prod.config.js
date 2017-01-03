@@ -77,8 +77,7 @@ export default {
     new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false
+      minimize: true
     }),
     new webpack.DefinePlugin(Object.assign(env, { 'process.env.NODE_ENV': JSON.stringify('production') }))
   ]
