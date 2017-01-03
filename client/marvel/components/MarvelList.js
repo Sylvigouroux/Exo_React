@@ -39,7 +39,7 @@ const MarvelList = ({store, state}) => {
                   },
                   h('img', { 
                       className: 'card-img-top',
-                      src: `${curr['thumbnail']['path']}/standard_xlarge.jpg`, 
+                      src: `${curr['thumbnail']['path'].replace(new RegExp('http:'), 'https:')}/standard_xlarge.jpg`, 
                       alt: curr['name'],
                       style: { padding: '0 0 5px 0' }
                     } 

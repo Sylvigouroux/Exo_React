@@ -22,9 +22,8 @@ const MarvelCard = ({state}) => {
               },
               h('img', { 
                   className: 'card-img-top',
-                  src: `${state['card']['thumbnail']['path']}/standard_xlarge.jpg`, 
-                  alt: state['card']['name'],
-                  height: '400px'
+                  src: `${state['card']['thumbnail']['path'].replace(new RegExp('http:'), 'https:')}/portrait_uncanny.jpg`, 
+                  alt: state['card']['name']
                 } 
               )
             )

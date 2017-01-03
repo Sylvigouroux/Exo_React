@@ -75,7 +75,6 @@ export default {
       template: path.join(__dirname, '../public/index.html') 
     }),
     new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,

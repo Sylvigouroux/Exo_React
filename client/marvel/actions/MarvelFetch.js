@@ -2,7 +2,7 @@ import md5 from 'blueimp-md5'
 import Future from 'fluture'
 
 export const MarvelFetch = ({type, offset}) => {   
-  const baseUrl = 'http://gateway.marvel.com:80'    
+  const baseUrl = 'https://gateway.marvel.com'    
 
   const api = ({url, method, headers, body}) => {
     // https://developers.google.com/web/fundamentals/getting-started/primers/promises#toc-promisifying-xmlhttprequest

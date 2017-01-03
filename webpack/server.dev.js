@@ -8,6 +8,7 @@ new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   historyApiFallback: true,
   hotOnly: true,
+  https: true,
   stats: {
     colors: true,
     chunks: false
@@ -15,5 +16,5 @@ new WebpackDevServer(webpack(config), {
 }).listen(3000, 'localhost', (err, result) => {
     (err) ? console.error(err) : console.log('The app is running at localhost:3000')
 
-    openBrowser('http://localhost:3000/')
+    openBrowser('https://localhost:3000/')
   })
