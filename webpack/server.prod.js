@@ -13,7 +13,7 @@ new WebpackDevServer(webpack(config), {
     chunks: false
   }
 }).listen(3000, 'localhost', (err, result) => {
-     (err) ? console.error(err) : console.log('The app is running at localhost:3000')
+     (err) ? console.error(err) : console.log('The app is running at https://localhost:3000')
 
      openBrowser('https://localhost:3000/')
    })

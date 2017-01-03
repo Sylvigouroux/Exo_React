@@ -68,7 +68,7 @@ export default {
     //   maxSize: 10000
     // }),
     new InterpolateHtmlPlugin({
-      PUBLIC_URL: JSON.stringify(env['PUBLIC_URL'])
+      PUBLIC_URL: 'public'
     }),
     new HtmlWebpackPlugin({ 
       inject: true,
