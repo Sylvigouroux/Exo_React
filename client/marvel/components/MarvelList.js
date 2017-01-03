@@ -9,7 +9,7 @@ const MarvelList = ({store, state}) => {
     h('div', { className: 'col-lg-12' }, 
       h('div', { className: 'row', style: { display: 'flex', alignItems: 'center', marginBottom: '30px' } },  
         h('div', { className: 'col-lg-5' }, 
-          h('h1', { className: css(Styles['heroes']) }, 'Liste des super héros :'),
+          h('h1', { className: css(Styles['heroes']) }, state['text']['list']),
         ),           
         h(MarvelSearch, {store, state})
       ),

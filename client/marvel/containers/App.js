@@ -16,7 +16,7 @@ const App = ({store, state}) => {
           : h(MarvelCard, {state})
         )
       ) 
-    : h(Loading, null)     
+    : h(Loading, {state})     
   )
 }
 

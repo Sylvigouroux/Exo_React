@@ -9,7 +9,7 @@ const MarvelSearch = ({state}) => {
       h('input', {
           className: 'form-control',   
           type: 'text',
-          placeholder: 'Recherchez un super héros',
+          placeholder: state['text']['search'],
           value: state['filter'],
           onChange: (e) => state.init('filter', e.target.value),
           style: { height: '50px', fontSize: '20px' }
