@@ -12,5 +12,4 @@ git clone https://github.com/gfortaine/Exo_React.git
 cd Exo_React/
 yarn install
 yarn run start
-open http://localhost:3000
 ```
