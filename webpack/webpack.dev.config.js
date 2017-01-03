@@ -7,7 +7,6 @@ import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin'
 export default {
   entry: {
     marvel: [
-      'react-hot-loader/patch',
       'react-dev-utils/webpackHotDevClient',
       './client/assets/skin.css',
       './client/marvel/index'
