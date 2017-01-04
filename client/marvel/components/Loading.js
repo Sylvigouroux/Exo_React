@@ -17,3 +17,7 @@ export const Loading = ({state}) => {
     )
   )        
 }
+
+Loading.propTypes = {
+  state: PropTypes.object
+}
