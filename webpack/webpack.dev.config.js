@@ -56,7 +56,7 @@ export default {
   },
   externals: {
     'react': 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOMFiber'
   },
   plugins: [
     new InterpolateHtmlPlugin({
