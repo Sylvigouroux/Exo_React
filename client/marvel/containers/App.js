@@ -13,10 +13,10 @@ const App = ({store, state}) => {
         h('div', { className: 'row' },
           (state['card'].length === 0)
           ? h(MarvelList, {store, state})
-          : h(MarvelCard, {state})
+          : h(MarvelCard, {store, state})
         )
       ) 
-    : h(Loading, {state})     
+    : h(Loading, {store})     
   )
 }
 

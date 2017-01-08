@@ -6,32 +6,28 @@ import Styles from '../styles/Styles'
 
 const MarvelList = ({store, state}) => {
   return (
-    h('div', { className: 'col-lg-12' }, 
-      h('div', { className: 'row', style: { display: 'flex', alignItems: 'center', marginBottom: '30px' } },  
-        h('div', { className: 'col-lg-5' }, 
-          h('h1', { className: css(Styles['heroes']) }, state['text']['list']),
+    h('div', { className: 'col-12' }, 
+      h('div', { className: 'd-flex flex-row align-items-center mb-5' },  
+        h('div', { className: 'col-5' }, 
+          h('h1', { className: css(Styles['heroes']) }, store['text']['list']),
         ),           
         h(MarvelSearch, {store, state})
       ),
-      store['characters'].reduce((prev, curr, currentIndex) => {
-        curr['name'].toLowerCase().includes(state['filter'].toLowerCase())
-        ? prev.push(
-            h('div', { 
-                className: 'col-lg-3', 
-                key: window.crypto.getRandomValues(new Uint32Array(1))[0],
-                style: { marginBottom: '15px' }
-              },
+      h('div', { className: 'd-flex flex-wrap justify-content-center' },
+        store['characters'].reduce((prev, curr, currentIndex) => {
+          curr['name'].toLowerCase().includes(state['filter'].toLowerCase())
+          ? prev.push(
               h('div', { 
-                  className: 'card',               
+                  className: 'card col-3 mb-4 mr-4',      
+                  key: window.crypto.getRandomValues(new Uint32Array(1))[0],         
                   style: { 
                     padding: '0', 
-                    boxShadow: '0 0 3px #ccc'
+                    boxShadow: '0 0 3px #ccc',
                   }                
                 },
-                h('div', { 
-                    style: { 
-                      display: 'flex', 
-                      justifyContent: 'center', 
+                h('div', {
+                    className: 'd-flex justify-content-center',
+                    style: {
                       backgroundColor: '#ececec',
                       cursor: 'pointer'
                     },
@@ -58,8 +54,8 @@ const MarvelList = ({store, state}) => {
                     }, curr['name']
                   ),
                   h('div', { 
-                      className: 'card-block',
-                      style: { display: 'flex', padding: '0 9px' } 
+                      className: 'card-block d-flex',
+                      style: { padding: '0 9px' } 
                     },
                     curr['urls'].reduce((prev1, curr1) => {
                       prev1.push(
@@ -84,9 +80,9 @@ const MarvelList = ({store, state}) => {
                 )
               )
             )
-          )
-        : null  
-        return prev }, [])
+          : null  
+          return prev }, [])
+      )
     )
   )
 }

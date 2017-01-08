@@ -3,13 +3,13 @@ import { observer } from 'mobx-react'
 import { css } from 'aphrodite'
 import Styles from '../styles/Styles'
 
-const MarvelSearch = ({state}) => {
+const MarvelSearch = ({store, state}) => {
   return (
-    h('div', { className: 'col-lg-2' },
+    h('div', { className: 'col-2' },
       h('input', {
           className: 'form-control',   
           type: 'text',
-          placeholder: state['text']['search'],
+          placeholder: store['text']['search'],
           value: state['filter'],
           onChange: (e) => state.init('filter', e.target.value),
           style: { height: '50px', fontSize: '20px' }
