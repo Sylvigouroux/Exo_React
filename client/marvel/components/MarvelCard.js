@@ -6,10 +6,10 @@ import Styles from '../styles/Styles'
 
 const MarvelCard = ({store, state}) => {
   return (
-    h('div', { className: 'col-12' }, 
+    h('div', { className: 'col-lg-12' }, 
       h('h1', { className: css(Styles['heroes']) }, store['text']['card']),
-      h('div', { className: 'col-12 mt-5 d-flex' },
-        h('div', { className: 'col-3 d-flex flex-column' },
+      h('div', { className: 'col-lg-12 mt-5 d-flex' },
+        h('div', { className: 'col-lg-3 d-flex flex-column' },
           h('div', { className: 'card', style: { border: '0' } }, 
             h('div', { className: 'd-flex justify-content-center' },
               h('img', { 
@@ -29,7 +29,7 @@ const MarvelCard = ({store, state}) => {
             )
           )
         ),
-        h('div', { className: 'col-6' },
+        h('div', { className: 'col-lg-6' },
           h('div', { 
               className: 'card mb-5',
               style: { 

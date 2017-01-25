@@ -6,9 +6,9 @@ import Styles from '../styles/Styles'
 
 const MarvelList = ({store, state}) => {
   return (
-    h('div', { className: 'col-12' }, 
+    h('div', { className: 'col-lg-12' }, 
       h('div', { className: 'd-flex flex-row align-items-center mb-5' },  
-        h('div', { className: 'col-5' }, 
+        h('div', { className: 'col-lg-5' }, 
           h('h1', { className: css(Styles['heroes']) }, store['text']['list']),
         ),           
         h(MarvelSearch, {store, state})
@@ -18,10 +18,9 @@ const MarvelList = ({store, state}) => {
           curr['name'].toLowerCase().includes(state['filter'].toLowerCase())
           ? prev.push(
               h('div', { 
-                  className: 'card col-3 mb-4 mr-4',      
+                  className: 'card col-lg-3 mb-4 mr-4 p-0',      
                   key: window.crypto.getRandomValues(new Uint32Array(1))[0],         
                   style: { 
-                    padding: '0', 
                     boxShadow: '0 0 3px #ccc',
                   }                
                 },
@@ -34,23 +33,24 @@ const MarvelList = ({store, state}) => {
                     onClick: () => state.init('card', store['characters'][currentIndex])
                   },
                   h('img', { 
-                      className: 'card-img-top',
+                      className: 'card-img-top pb-1',
                       src: `${curr['thumbnail']['path'].replace(new RegExp('http:'), 'https:')}/standard_xlarge.jpg`, 
-                      alt: curr['name'],
-                      style: { padding: '0 0 5px 0' }
+                      alt: curr['name']
                     } 
                   )
                 ),
                 h('div', { 
-                    className: 'card-block',
+                    className: 'card-block py-2 pl-0',
                     style: { 
-                      padding: '10px 0', 
                       boxShadow: '0 -1px 1px -1px #ccc'
                     }
                   },
                   h('p', { 
                       className: css(Styles['caption']), 
-                      style: { padding: '10px', boxShadow: '0 1px 1px -1px #ccc' } 
+                      style: { 
+                        padding: '10px', 
+                        boxShadow: '0 1px 1px -1px #ccc' 
+                      } 
                     }, curr['name']
                   ),
                   h('div', { 
@@ -61,12 +61,12 @@ const MarvelList = ({store, state}) => {
                       prev1.push(
                         h('div', { 
                             key: window.crypto.getRandomValues(new Uint32Array(1))[0],
-                            style: { marginRight: '10px' }
+                            className: 'mr-2'
                           },
                           h('i', {
-                              className: 'fa fa-book fa-1',
+                              className: 'fa fa-book fa-1 mr-1',
                               'aria-hidden': 'true',
-                              style: { marginRight: '5px', color: '#999' }
+                              style: { color: '#999' }
                             }
                           ),                   
                           h('a', { 

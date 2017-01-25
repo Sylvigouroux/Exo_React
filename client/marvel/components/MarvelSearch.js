@@ -5,7 +5,7 @@ import Styles from '../styles/Styles'
 
 const MarvelSearch = ({store, state}) => {
   return (
-    h('div', { className: 'col-2' },
+    h('div', { className: 'col-lg-2' },
       h('input', {
           className: 'form-control',   
           type: 'text',

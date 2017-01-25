@@ -7,7 +7,7 @@ import logoVentePrivee from '../../assets/images/logos/logo_vp.png'
 
 export const Loading = ({store}) => {
   return (
-    h('div', { className: 'col-12 mt-4', style: { textAlign: 'center' } },
+    h('div', { className: 'col-lg-12 mt-4', style: { textAlign: 'center' } },
       h('img', { className: css(Styles['App-logo']), src: logoReact, alt: 'logo' }),       
       h('div', { className: 'd-flex justify-content-center' },
         h('h2', { className: css(Styles['welcome']) }, store['text']['loading']),

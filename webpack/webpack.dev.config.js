@@ -69,7 +69,7 @@ export default {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.SourceMapDevToolPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin(env)    
   ]
 }
